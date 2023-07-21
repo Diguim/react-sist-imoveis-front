@@ -1,7 +1,8 @@
-import Banner from './components/Banner'
+// import Banner from './components/Banner'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Home from './pages/Home'
+// import Home from './pages/Home'
+import Imobi from './pages/Imobi'
 import Global from './styles/Global'
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
   return (
     <div>
       <Header />
-      <Banner />
-      <Home />
+      <Imobi />
+      {/* <Banner />
+      <Home /> */}
       <Footer />
       <Global />
     </div>
