@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Container, Description, Img, Itens } from "./styles";
-import { FaArrowRight, FaMapMarkerAlt } from "react-icons/fa"
+import { FaArrowRight, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Card(){
 
@@ -14,8 +15,9 @@ export default function Card(){
                     <span> <FaMapMarkerAlt /> descricao do endereço</span>
                     <span>R$ 2400,00 / mês</span>
                 </Itens>
-                <a href="#"> Detalhes <FaArrowRight/> </a>
-               
+                <Link to='/imovel'>
+                    Detalhes <FaArrowRight/>
+                </Link>
             </Description>
         </Container>
     )

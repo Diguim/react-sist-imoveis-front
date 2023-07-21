@@ -1,5 +1,6 @@
+import Banner from "../../components/Banner";
 import Card from "../../components/Card";
-import { Header, Wrapper } from "./styles";
+import {Wrapper} from "./styles";
 
 
 export default function Home(){
@@ -10,9 +11,7 @@ export default function Home(){
     
     return (
         <div>
-            <Header>
-                <h2>Titulo h2 do header do div do HOME</h2>
-            </Header>
+            <Banner/>
             <Wrapper>
                 {Cards}
             </Wrapper>

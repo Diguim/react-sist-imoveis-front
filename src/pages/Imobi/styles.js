@@ -64,34 +64,7 @@ export const ProfileFormContact = styled.div`
         color: var(--secundary);
     }
     form{
-        input{
-            height: 50px;
-            padding: 8px 5px;
-            border-radius: 3px;
-            width: 100%;
-            color: var(--secundary);
-            letter-spacing: 0.1px;
-            font-size: .938rem;
-            margin-bottom: 10px;
-            border: 1px solid var(--gray);
-        }
-        textarea{
-            margin: .5rem 0;
-            resize: none;
-            width: 100%;
-            border: 1px solid var(--gray);
-        }
-        button{
-            border: 1px solid var(--gray);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 1.2rem;
-            font-weight: 300;
-            &:hover{
-                background-color: var(--gray);
-                cursor: pointer;
-            }
-        }
+        
         display: flex;
         flex-direction: column;
         

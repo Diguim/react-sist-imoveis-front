@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     padding: 25px 150px;
-    height: 96px;
+    /* height: 96px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,8 +15,9 @@ export const Logo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 200px;
     img{
-        width: 300px;
+        width: 100%;
     }
 `
 
@@ -30,6 +31,7 @@ export const Menu = styled.div`
             border: 1px solid var(--gray);
             border-radius: 10px;
             padding: 10px;
+            margin-left: .5rem;
             span{
                 font-size: 1.2rem;
                 font-weight: 300;
