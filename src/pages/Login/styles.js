@@ -24,6 +24,6 @@ export const Label = styled.label`
     margin-bottom: 10px;
     font-weight: 500;
 `
-export const Form = styled.label`
+export const Form = styled.form`
     width: 100%;
 `

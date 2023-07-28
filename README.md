@@ -37,3 +37,9 @@ Para buscar dados vindos da API do Back-end
 ```bash
 npm install axios
 ```
+
+##### - React-toastify
+Para trabalhar com alertas de mensagens - parte visual
+```bash
+npm install --save react-toastify
+```

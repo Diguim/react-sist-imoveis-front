@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import Cadastro from "../pages/Cadastro";
 import Imobi from "../pages/Imobi";
 import Error from "../pages/Error";
+import Perfil from '../pages/Perfil';
+import PrivateRoute from '../components/PrivateRoute';
 
 
 export default function RouterApp(){
@@ -21,6 +23,11 @@ export default function RouterApp(){
                 <Route exact path='/login' element={<Login/>} />
                 <Route exact path='/cadastro' element={<Cadastro/>} />
                 <Route exact path='/imovel' element={<Imobi/>} />
+                <Route exact path='/perfil' element={
+                    <PrivateRoute>
+                        <Perfil/>
+                    </PrivateRoute>
+                } />
                 <Route path='*' element={<Error/>} />
                 
             </Routes>
