@@ -6,6 +6,7 @@ import TextArea from "../../components/TextArea"
 import Button from "../../components/Button"
 import Api, { urlApi } from "../../services/Api"
 import { useParams } from "react-router-dom"
+import { toast } from "react-toastify"
 
 export default function Imobi(){
 
@@ -14,7 +15,7 @@ export default function Imobi(){
 
     useEffect(() => {
 
-        Api.get(`/listimobi/${slug}`)
+        Api.get(`/listimobi/${ slug }`)
         .then((response) => { 
             setDataImobi(response.data)
          })
@@ -31,10 +32,34 @@ export default function Imobi(){
         thumb,
         email,
         name,
-        telefone
-
+        telefone,
+        userId
     } = dataImobi;
 
+    const [ client_name, setClientName] = useState('');
+    const [ client_email, setClientEmail] = useState('');
+    const [ client_mensagem, setClientMensagem] = useState('');
+
+    
+    const dataMessage = {
+        client_name,
+        client_email,
+        client_mensagem,
+        userId
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        Api.post('/createmessage', dataMessage)
+        .then((response) => {
+            if(!response.data.erro === true){
+                toast(response.data.message);
+            }else{
+                toast(response.data.message);
+            }
+        }).catch(() => {
+            console.log("Deu erro no create message api");
+        })
+    }
     return (
         <Fragment>
             <TopBanner
@@ -70,11 +95,12 @@ export default function Imobi(){
                         </ProfileContact>
                         <ProfileFormContact>
                             <h3>Contate o anunciante</h3>
-                            <form>
-                                <Input type="text" placeholder="Nome"  />
-                                <Input type="email" placeholder="email@email.com"/>
-                                <TextArea cols="30" rows="10" placeholder="Escreva a mensagem"/>
-                                <Button>Enviar Mensagem</Button>
+                            <form onSubmit={handleSubmit} autoComplete="off">
+                                <Input type="hidden" name="userId" value={userId}/>
+                                <Input type="text" name="client_name" placeholder="Nome" onChange={(e) => setClientName(e.target.value)} />
+                                <Input type="email" name="client_email" placeholder="email@email.com" onChange={(e) => setClientEmail(e.target.value)} />
+                                <TextArea cols="30" name="client_mensagem" rows="10" placeholder="Escreva a mensagem" onChange={(e) => setClientMensagem(e.target.value)} />
+                                <Button type="submit">Enviar Mensagem</Button>
                                
                             </form>
                         </ProfileFormContact>

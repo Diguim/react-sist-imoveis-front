@@ -4,6 +4,12 @@ import { Container, Logo, Menu } from "./styles";
 
 
 export default function Header(){
+    const userLogged = localStorage.getItem('TesteKey');
+
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.href = "/login";
+    }
     
     return (
         <Container>
@@ -14,17 +20,21 @@ export default function Header(){
             </Logo>
             <Menu>
                 <ul>
-                    <Link to='/cadastro'>
-                        <li>
-                            <span>Cadastro</span>
-                        </li>
-                    </Link>
-                    <Link to='/login'>
-                        <li>
-                            <span>Login</span>
-                        </li>
-                    </Link>
-                    
+                    {!userLogged ? 
+                    (<li>
+                        <Link to='/cadastro'>
+                            <li>
+                                <span>Cadastro</span>
+                            </li>
+                        </Link>
+                        <Link to='/login'>
+                            <li>
+                                <span>Login</span>
+                            </li>
+                        </Link>
+                    </li>) : (
+                        <li><Link onClick={handleLogout}><span>Sair</span></Link></li>
+                     )}
                 </ul>
             </Menu>
         </Container>
