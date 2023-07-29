@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
+import { urlApi } from "../../services/Api"
 import { Container, Text } from "./styles"
 
-export default function TopBanner(){
-
+export default function TopBanner({ tipo, descricao, thumb }){
+    const imgUrl = `${urlApi}/uploads/${thumb}`
     return (
-        <Container>
+        <Container style={{backgroundImage: `url(${imgUrl});`}}>
             <Text>
-                <h2>Apartamentos</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo adipisci itaque aut qui.</p>
+                <h2>{tipo}</h2>
+                <p>{descricao}</p>
             </Text>
         </Container>
     )

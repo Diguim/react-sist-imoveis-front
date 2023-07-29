@@ -22,7 +22,7 @@ export default function RouterApp(){
                 <Route exact path='/' element={<Home/>} />
                 <Route exact path='/login' element={<Login/>} />
                 <Route exact path='/cadastro' element={<Cadastro/>} />
-                <Route exact path='/imovel' element={<Imobi/>} />
+                <Route exact path='/imovel/:slug' element={<Imobi/>} />
                 <Route exact path='/perfil' element={
                     <PrivateRoute>
                         <Perfil/>

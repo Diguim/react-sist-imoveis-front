@@ -8,17 +8,5 @@ const PrivateRoute = ({ children }) => {
     return auth ? <>{children}</> : (<Navigate to="/login"/>)
 }
 
-    // return 
-    // <Route
-    //     {...rest}
-
-    //     loader={ () => 
-    //         isAuthenticate() ? 
-    //         (<Component/>) : 
-    //         (<Navigate to={"/login"}/>)
-    //     }
-
-    // />
-
 
 export default PrivateRoute;

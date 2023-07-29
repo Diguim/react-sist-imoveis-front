@@ -1,41 +1,72 @@
-import { Fragment } from "react"
+import { Fragment, useEffect, useState } from "react"
 import TopBanner from "../../components/TopBanner"
 import { Container, Description, Left, Profile, ProfileContact, ProfileDescription, ProfileFormContact, ProfileImg, Right, Thumb } from "./styles"
 import Input from "../../components/Input"
 import TextArea from "../../components/TextArea"
 import Button from "../../components/Button"
+import Api, { urlApi } from "../../services/Api"
+import { useParams } from "react-router-dom"
 
 export default function Imobi(){
 
+    const { slug } = useParams();
+    const [dataImobi, setDataImobi] = useState([]);
+
+    useEffect(() => {
+
+        Api.get(`/listimobi/${slug}`)
+        .then((response) => { 
+            setDataImobi(response.data)
+         })
+        .catch(() => { 
+            console.log("Erro ao captar imóvel");
+        })
+    }, [])
+
+    const {
+        tipo,
+        cidade,
+        endereco,
+        descricao,
+        thumb,
+        email,
+        name,
+        telefone
+
+    } = dataImobi;
+
     return (
         <Fragment>
-            <TopBanner />
+            <TopBanner
+                tipo={tipo} 
+                descricao={descricao}
+                thumb={thumb}
+            />
             <Container>
                 <Left>
                     <Thumb>
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1175&q=80" alt="" />
+                        <img src={`${urlApi}/uploads/${thumb}`} alt="" />
                     </Thumb>
                     <Description>
-                        <h2>Apartamento / Alugar</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, adipisci. Dolore inventore amet qui repudiandae officiis minus eius ea ullam! Perspiciatis eligendi qui quod at sed quae? Nihil, repellendus. Laudantium?</p>
+                        <h2>{tipo}</h2>
+                        <p>{`Endereço: ${endereco}, ${cidade}`}</p>
+                        <p>{descricao}</p>
 
                     </Description>
                 </Left>
                 <Right>
                     <Profile>
                         <ProfileImg>
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1175&q=80" alt="" />
+                            <img src="" alt="FOTO DE PERFIL DO USUÁRIO" />
                         </ProfileImg>
                         <ProfileDescription>
-                            <h3>Nome do perfil</h3>
-                            <p>Endereço</p>
-                            
+                            <h3>{name}</h3>
                         </ProfileDescription>
                     </Profile>
                         <ProfileContact>
                             <h3>Informações para contato</h3>
-                            <p>(xx) xxxx-xxxx</p>
-                            <p>email@email.com</p>
+                            <p>{telefone}</p>
+                            <p>{email}</p>
                         </ProfileContact>
                         <ProfileFormContact>
                             <h3>Contate o anunciante</h3>
