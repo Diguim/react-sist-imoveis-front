@@ -9,11 +9,9 @@ export default function Home(){
     const [imobi, setImobi] = useState([]);
 
     useEffect(() => {
-        Api.get("/listimobi")
+        Api.get("/listImobi")
         .then((response) => {
-            setImobi(response.data);
-            console.log(response.data)
-            
+            setImobi(response.data);            
         })
         .catch(() => {
             console.log("erro na api da home");
@@ -33,7 +31,7 @@ export default function Home(){
                             tipo={items.tipo}
                             endereco={items.endereco}
                             valor={items.valor}
-                            slug={items.slug}
+                            id={items.id}
                         />
                     ))
                 }

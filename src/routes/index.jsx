@@ -20,10 +20,10 @@ export default function RouterApp(){
 
             <Routes>
                 <Route exact path='/' element={<Home/>} />
-                <Route exact path='/login' element={<Login/>} />
-                <Route exact path='/cadastro' element={<Cadastro/>} />
-                <Route exact path='/imovel/:slug' element={<Imobi/>} />
-                <Route exact path='/perfil' element={
+                <Route path='/login' element={<Login/>} />
+                <Route path='/cadastro' element={<Cadastro/>} />
+                <Route path='/imovel/:id' element={<Imobi/>} />
+                <Route path='/perfil' element={
                     <PrivateRoute>
                         <Perfil/>
                     </PrivateRoute>

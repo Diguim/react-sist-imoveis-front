@@ -71,12 +71,14 @@ export default function Perfil(){
     <Container>
       <Left>
         <h2>Minhas mensagens</h2>
-        {message.map((item, index) => (
-          <Message key={index}>
-            <span>Nome: {item.client_name}</span>
-            <span>Email: {item.client_email}</span>
-            <p>{item.client_mensagem}</p>
-          </Message>
+        {
+          message.map((item, index) => (
+            <Message key={index}>
+              <span>Nome: {item.client_name}</span>
+              <span>Email: {item.client_email}</span>
+              <p>{item.client_mensagem}</p>
+            </Message>
+          
         ))}
       </Left>
       <Right>

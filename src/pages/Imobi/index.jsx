@@ -10,13 +10,14 @@ import { toast } from "react-toastify"
 
 export default function Imobi(){
 
-    const { slug } = useParams();
+    const { id } = useParams();
     const [dataImobi, setDataImobi] = useState([]);
 
     useEffect(() => {
 
-        Api.get(`/listimobi/${ slug }`)
+        Api.get(`/listImobi/${id}`)
         .then((response) => { 
+            console.log(response)
             setDataImobi(response.data)
          })
         .catch(() => { 

@@ -4,7 +4,7 @@ import { Container, Description, Img, Itens } from "./styles";
 import { FaArrowRight, FaMapMarkerAlt } from "react-icons/fa";
 import { urlApi } from "../../services/Api";
 
-export default function Card({ thumb, tipo, endereco, valor, slug }){
+export default function Card({ thumb, tipo, endereco, valor, id }){
 
     return(
         <Container>
@@ -18,7 +18,7 @@ export default function Card({ thumb, tipo, endereco, valor, slug }){
                     <span> <FaMapMarkerAlt /> {endereco} </span>
                     <span>R$ {valor} / mês</span>
                 </Itens>
-                <Link to={`/imovel/${slug}`}>
+                <Link to={`/imovel/${id}`}>
                     Detalhes <FaArrowRight/>
                 </Link>
             </Description>
