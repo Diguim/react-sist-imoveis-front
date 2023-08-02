@@ -8,7 +8,7 @@ export const Container = styled.div`
     background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1175&q=80');
     
     &::before{
-        background-color: #0000002f;
+        background-color: #0000005f;
         content: '';
         position: absolute;
         top: 0;
@@ -33,13 +33,13 @@ export const Text = styled.div`
         color: var(--white);
         margin-bottom: 25px;
     }
-    span{
+    button{
         background-color: var(--blue);
         border: 0;
         color: var(--white);
         font-size: 14px;
         font-weight: 600;
-        padding: 12px 120px;
+        padding: 12px 50px;
         line-height: 24px;
         border-radius: 3px;
         cursor: pointer;

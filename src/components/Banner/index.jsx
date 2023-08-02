@@ -7,7 +7,7 @@ export default function Banner() {
             <Text>
                 <h2>Titulo de h2</h2>
                 <p>um paragrafo abaixo do h2</p>
-                <span>Cadastre seu anuncio</span>
+                <button>Cadastre seu anuncio</button>
             </Text>
         </Container>
     )

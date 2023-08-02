@@ -15,6 +15,9 @@ export const Container = styled.div`
     }
 `
 export const ContainerForm = styled.div`
+    border: 1px solid gray;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 10px black;
     padding: 35px;
     width: 370px;
     background-color: var(--white);

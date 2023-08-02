@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     padding: 25px 150px;
-    /* height: 96px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,17 +27,28 @@ export const Menu = styled.div`
         justify-content: center;
         align-items: center;
         li{
-            border: 1px solid var(--gray);
-            border-radius: 10px;
-            padding: 10px;
-            margin-left: .5rem;
-            span{
-                font-size: 1.2rem;
-                font-weight: 300;
-            }
-            &:hover{
-                background-color: var(--gray);
-                cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            
+            li{
+             
+                border: 1px solid var(--gray);
+                border-radius: 10px;
+                
+                width: 90px;
+                height: 50px;
+                
+                span{
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                }
+                &:hover{
+                    background-color: var(--gray);
+                    cursor: pointer;
+                }
             }
         }
     }
