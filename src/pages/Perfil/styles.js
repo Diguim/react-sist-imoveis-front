@@ -35,4 +35,6 @@ export const Message = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #ffff;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
 `;

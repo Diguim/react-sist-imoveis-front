@@ -17,7 +17,7 @@ export default function Imobi(){
 
         Api.get(`/listImobi/${id}`)
         .then((response) => { 
-            console.log(response)
+            
             setDataImobi(response.data)
          })
         .catch(() => { 
@@ -39,17 +39,18 @@ export default function Imobi(){
 
     const [ client_name, setClientName] = useState('');
     const [ client_email, setClientEmail] = useState('');
-    const [ client_mensagem, setClientMensagem] = useState('');
+    const [ client_message, setClientMessage] = useState('');
 
     
     const dataMessage = {
         client_name,
         client_email,
-        client_mensagem,
+        client_message,
         userId
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(userId)
         Api.post('/createmessage', dataMessage)
         .then((response) => {
             if(!response.data.erro === true){
@@ -83,7 +84,7 @@ export default function Imobi(){
                 <Right>
                     <Profile>
                         <ProfileImg>
-                            <img src="" alt="FOTO DE PERFIL DO USUÁRIO" />
+                            <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="FOTO DE PERFIL DO USUÁRIO" />
                         </ProfileImg>
                         <ProfileDescription>
                             <h3>{name}</h3>
@@ -100,7 +101,7 @@ export default function Imobi(){
                                 <Input type="hidden" name="userId" value={userId}/>
                                 <Input type="text" name="client_name" placeholder="Nome" onChange={(e) => setClientName(e.target.value)} />
                                 <Input type="email" name="client_email" placeholder="email@email.com" onChange={(e) => setClientEmail(e.target.value)} />
-                                <TextArea cols="30" name="client_mensagem" rows="10" placeholder="Escreva a mensagem" onChange={(e) => setClientMensagem(e.target.value)} />
+                                <TextArea cols="30" name="client_message" rows="10" placeholder="Escreva a mensagem" onChange={(e) => setClientMessage(e.target.value)} />
                                 <Button type="submit">Enviar Mensagem</Button>
                                
                             </form>

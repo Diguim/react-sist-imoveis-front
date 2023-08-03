@@ -76,7 +76,7 @@ export default function Perfil(){
             <Message key={index}>
               <span>Nome: {item.client_name}</span>
               <span>Email: {item.client_email}</span>
-              <p>{item.client_mensagem}</p>
+              <p>{item.client_message}</p>
             </Message>
           
         ))}
